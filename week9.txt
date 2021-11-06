@@ -1,0 +1,6 @@
+Things for groceries:
+apple
+banana
+paper
+scissors
+tomato
