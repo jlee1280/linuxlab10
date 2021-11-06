@@ -1,0 +1,37 @@
+#!/bin/bash
+
+file="$1"
+COUNT=1
+
+# When user uses -n it will display line numbers
+while getopts ":n:h" opt; do
+  case $opt in
+    n)
+      #variable n takes a filename as an argument and reads line including an increment for line numbers for each line.
+      n=${OPTARG}
+      echo -e "The file $n contains number lines and the following...\n"
+      while read line
+      do 
+        echo "$COUNT. $line"
+        ((COUNT=$COUNT+1))
+        done <"$n"
+        exit 0 
+      ;;
+    h)
+      #help users what they need to do and what to expect
+      echo "Option: '-n file-name' display file line including numbers" 
+      echo "Option: 'file-name' display file line with no numbers"
+      exit 1
+      ;;
+  esac
+done
+
+#format what file has been used to read
+echo -e "The file $file contains the following...\n"
+
+while IFS= read -r line
+do 
+  echo "$line"
+done <"$file" 
+exit 0
+
