@@ -1,0 +1,8 @@
+[Unit]
+Description=Weather Daemon
+
+[Service]
+ExecStart=/home/vagrant/weather/wttr.sh
+
+[Install]
+WantedBy=multi-user.target 
