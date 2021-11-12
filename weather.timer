@@ -1,0 +1,11 @@
+# weather timer
+[Unit]
+Description=Runs the weather.service daily
+
+[Timer]
+OnCalendar=daily
+Unit=weather.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target
